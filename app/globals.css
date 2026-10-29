@@ -1,26 +1,48 @@
 @import "tailwindcss";
+@import "@tum.ai/ui-kit/tailwind.css";
+@import "@tum.ai/ui-kit/fonts.css";
+@import "@tum.ai/ui-kit/shell.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* The kit's header nav is `overflow-x-auto`, which shows a scrollbar
+   (macOS "always show scrollbars", Windows). Keep it scrollable, hide the bar. */
+header nav[aria-label="Main"] {
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+header nav[aria-label="Main"]::-webkit-scrollbar {
+  display: none;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Hero photo inside the logomark, placed as on tum-ai.com. */
+.sf-aperture-frame {
+  opacity: 0.5;
+  width: 118vw;
+  bottom: 7rem;
+  right: -34vw;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (min-width: 40rem) {
+  .sf-aperture-frame {
+    width: 88vw;
+    right: -22vw;
   }
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (min-width: 64rem) {
+  .sf-aperture-frame {
+    top: calc(var(--header-height) + 1.5rem);
+    bottom: auto;
+    opacity: 1;
+    width: min(58vw, 62rem);
+    right: -6vw;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sf-aperture-frame {
+    animation: sf-aperture-in 1.2s var(--ease-brand) both;
+  }
+}
+@keyframes sf-aperture-in {
+  0% {
+    opacity: 0;
+    transform: translateY(3%);
+  }
 }

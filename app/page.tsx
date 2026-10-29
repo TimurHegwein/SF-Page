@@ -1,69 +1,171 @@
-import Image from "next/image";
+import {
+  BulletList,
+  ButtonLink,
+  Container,
+  CtaBand,
+  Eyebrow,
+  Heading,
+  PersonCard,
+  Section,
+  SectionHeader,
+  SpotlightCard,
+  StatGrid,
+  Text,
+  TextLink,
+} from "@tum.ai/ui-kit";
+import { Footer, Header } from "@tum.ai/ui-kit/shell";
+import { SfHero } from "@/components/sf-hero";
+import {
+  advisors,
+  CONTACT_EMAIL,
+  EVENT_NAME,
+  cta,
+  hero,
+  mailto,
+  partners,
+  stats,
+  tracks,
+} from "@/content/event";
 
-export default function Home() {
+const logo = {
+  src: "/tum_ai_logo_new.svg",
+  width: 1640,
+  height: 406,
+  alt: "TUM.ai",
+  unoptimized: true,
+};
+
+const partnerMail = mailto(`Partnering with the ${EVENT_NAME}`);
+
+export default function Page() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Header
+        logo={logo}
+        homeHref="#main-content"
+        navigation={[
+          { href: "#format", label: "Format" },
+          { href: "#why-now", label: "Why now" },
+          { href: "#advisors", label: "Advisors" },
+          { href: "#contact", label: "Contact" },
+        ]}
+        cta={{ href: partnerMail, label: "Become a partner" }}
+      />
+
+      <main id="main-content" tabIndex={-1}>
+        <SfHero
+          title={hero.title}
+          tagline={hero.tagline}
+          lead={hero.lead}
+          cta={{ href: partnerMail, label: "Become a partner" }}
+          partners={partners}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+
+        <Section id="format" tone="paper">
+          <Container>
+            <SectionHeader
+              eyebrow="Format"
+              title="A summit and a hackathon in San Francisco."
+              lead="Come for the stage, stay for the build, or back both."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {tracks.map((track) => (
+                <SpotlightCard key={track.id} variant="outline" padding="lg" className="flex flex-col">
+                  <Eyebrow>{track.eyebrow}</Eyebrow>
+                  <Heading as="h3" size="lg" className="mt-4">
+                    {track.title}
+                  </Heading>
+                  <Text size="lead" emphasis="muted" className="mt-3">
+                    {track.lead}
+                  </Text>
+                  <BulletList className="mt-6" items={track.items} />
+                  <div className="mt-auto pt-8">
+                    <TextLink href={mailto(track.cta.subject)} arrow>
+                      {track.cta.label}
+                    </TextLink>
+                  </div>
+                </SpotlightCard>
+              ))}
+            </div>
+          </Container>
+        </Section>
+
+        <Section id="why-now" tone="mist">
+          <Container>
+            <SectionHeader
+              eyebrow="Why now"
+              title="The Munich–Bay pipeline is already running."
+              lead="German engineers have been building the Bay for decades. TUM.ai is where the next ones meet."
+            />
+            <StatGrid className="mt-12" columns={4} items={stats} />
+          </Container>
+        </Section>
+
+        <Section id="advisors" tone="lavender">
+          <Container>
+            <SectionHeader
+              eyebrow="Advisors"
+              title="Advised by people who made the move"
+            />
+            <div className="mt-12 grid max-w-3xl gap-8 sm:grid-cols-2">
+              {advisors.map((person, i) => (
+                <PersonCard
+                  key={i}
+                  name={person.name}
+                  byline={person.byline}
+                  image={{ src: person.image, alt: "" }}
+                  unoptimized
+                >
+                  <TextLink href={person.linkedin} emphasis="muted">
+                    LinkedIn
+                  </TextLink>
+                </PersonCard>
+              ))}
+            </div>
+          </Container>
+        </Section>
+
+        <CtaBand
+          id="contact"
+          variant="band"
+          tone="violet"
+          mark
+          titleId="contact-title"
+          eyebrow={cta.eyebrow}
+          title={cta.title}
+          lead={cta.lead}
+          actions={
+            <ButtonLink href={partnerMail} variant="inverse" arrow="right">
+              {CONTACT_EMAIL}
+            </ButtonLink>
+          }
+        />
       </main>
-    </div>
+
+      <Footer
+        logo={logo}
+        tagline="See you in SF."
+        columns={[
+          {
+            id: "event",
+            title: "Event",
+            links: [
+              { href: "#format", label: "Format" },
+              { href: "#why-now", label: "Why now" },
+              { href: "#advisors", label: "Advisors" },
+            ],
+          },
+          {
+            id: "contact",
+            title: "Contact",
+            links: [
+              { href: partnerMail, label: CONTACT_EMAIL },
+              { href: "https://www.tum-ai.com", label: "tum-ai.com", external: true },
+            ],
+          },
+        ]}
+        bottomLine="© TUM.ai"
+      />
+    </>
   );
 }
