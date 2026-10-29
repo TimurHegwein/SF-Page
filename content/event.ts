@@ -1,4 +1,5 @@
 import type { LogoItem, StatItem } from "@tum.ai/ui-kit";
+import { asset } from "@/lib/asset";
 
 // All page copy and data. Anything marked TODO is a placeholder to confirm.
 
@@ -75,13 +76,13 @@ export const tracks = [
 
 // Logos live in /public/logos. Mark-only logos get a `wordmark` set beside them.
 export const partners: LogoItem[] = [
-  { name: "OpenAI", src: "/logos/openai.svg", href: "https://openai.com", aspectRatio: 928 / 308 },
-  { name: "Antler", src: "/logos/antler.svg", href: "https://www.antler.co", aspectRatio: 117 / 28 },
-  { name: "Modal", src: "/logos/modal.svg", href: "https://modal.com", aspectRatio: 187 / 35 },
-  { name: "Cognition", src: "/logos/cognition.svg", href: "https://cognition.ai", aspectRatio: 1, wordmark: "Cognition" },
-  { name: "Headline", src: "/logos/headline.svg", href: "https://headline.com", aspectRatio: 217 / 378, wordmark: "Headline" },
-  { name: "Zero Prime Ventures", src: "/logos/zeroprime.svg", href: "https://zeroprime.vc", aspectRatio: 160 / 31 },
-  { name: "Tenor", src: "/logos/tenor.svg", href: "https://heytenor.com", aspectRatio: 825 / 172 },
+  { name: "OpenAI", src: asset("/logos/openai.svg"), href: "https://openai.com", aspectRatio: 928 / 308 },
+  { name: "Antler", src: asset("/logos/antler.svg"), href: "https://www.antler.co", aspectRatio: 117 / 28 },
+  { name: "Modal", src: asset("/logos/modal.svg"), href: "https://modal.com", aspectRatio: 187 / 35 },
+  { name: "Cognition", src: asset("/logos/cognition.svg"), href: "https://cognition.ai", aspectRatio: 1, wordmark: "Cognition" },
+  { name: "Headline", src: asset("/logos/headline.svg"), href: "https://headline.com", aspectRatio: 217 / 378, wordmark: "Headline" },
+  { name: "Zero Prime Ventures", src: asset("/logos/zeroprime.svg"), href: "https://zeroprime.vc", aspectRatio: 160 / 31 },
+  { name: "Tenor", src: asset("/logos/tenor.svg"), href: "https://heytenor.com", aspectRatio: 825 / 172 },
 ];
 
 // TODO: add advisor photos to /public/advisors and confirm the bylines.
@@ -89,13 +90,13 @@ export const advisors = [
   {
     name: "Mike Mahlkow",
     byline: "Co-founder & CEO, Fastgen (YC W23). Previously co-founded Blair (YC S19).",
-    image: "/placeholder.svg",
+    image: asset("/placeholder.svg"),
     linkedin: "https://www.linkedin.com/in/mikemahlkow/",
   },
   {
     name: "Tim Saval",
     byline: "Founder & CEO, Plural",
-    image: "/placeholder.svg",
+    image: asset("/placeholder.svg"),
     linkedin: "https://www.linkedin.com/in/timsaval/",
   },
 ];

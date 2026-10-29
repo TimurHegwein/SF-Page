@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Actions, Anchor, ButtonLink, Container, Heading, Section, SplitWords, Text } from "@tum.ai/ui-kit";
 import type { LogoItem } from "@tum.ai/ui-kit";
+import { asset } from "@/lib/asset";
 
 type SfHeroProps = {
   title: string;
@@ -24,10 +25,10 @@ export function SfHero({ title, tagline, lead, cta, partners }: SfHeroProps) {
       <div aria-hidden className="sf-aperture-frame pointer-events-none absolute -z-10 aspect-[477/406] select-none">
         <div
           className="absolute inset-0 bg-violet-950"
-          style={{ mask: "url(/mark-mask.svg) center / 100% 100% no-repeat" }}
+          style={{ mask: `url(${asset("/mark-mask.svg")}) center / 100% 100% no-repeat` }}
         >
           <Image
-            src="/sf-bridge.jpg"
+            src={asset("/sf-bridge.jpg")}
             alt=""
             fill
             priority

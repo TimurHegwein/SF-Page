@@ -15,6 +15,7 @@ import {
 } from "@tum.ai/ui-kit";
 import { Footer, Header } from "@tum.ai/ui-kit/shell";
 import { SfHero } from "@/components/sf-hero";
+import { asset } from "@/lib/asset";
 import {
   advisors,
   CONTACT_EMAIL,
@@ -28,7 +29,7 @@ import {
 } from "@/content/event";
 
 const logo = {
-  src: "/tum_ai_logo_new.svg",
+  src: asset("/tum_ai_logo_new.svg"),
   width: 1640,
   height: 406,
   alt: "TUM.ai",
