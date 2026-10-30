@@ -46,3 +46,28 @@ header nav[aria-label="Main"]::-webkit-scrollbar {
     transform: translateY(3%);
   }
 }
+
+/* People marquee (components/people-marquee.tsx). */
+.sf-marquee-track {
+  animation: sf-marquee 60s linear infinite;
+}
+.sf-marquee:hover .sf-marquee-track,
+.sf-marquee:focus-within .sf-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes sf-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sf-marquee {
+    overflow-x: auto;
+  }
+  .sf-marquee-track {
+    animation: none;
+  }
+  .sf-marquee-copy[inert] {
+    display: none;
+  }
+}

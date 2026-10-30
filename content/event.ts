@@ -103,16 +103,16 @@ export const speakers: Person[] = [
 
 export const advisors: Person[] = [
   {
-    name: "Mike Mahlkow",
-    byline: "Co-founder & CEO, Fastgen (YC W23). Previously co-founded Blair (YC S19).",
-    image: asset("/people/Mike.jpg"),
-    linkedin: "https://www.linkedin.com/in/mikemahlkow/",
-  },
-  {
     name: "Tim Saval",
     byline: "Founder & CEO, Plural",
     image: asset("/people/Tim.png"),
     linkedin: "https://www.linkedin.com/in/timsaval/",
+  },
+  {
+    name: "Mike Mahlkow",
+    byline: "Co-founder & CEO, Fastgen (YC W23)",
+    image: asset("/people/Mike.jpg"),
+    linkedin: "https://www.linkedin.com/in/mikemahlkow/",
   },
   {
     name: "Luis Schmitz",
@@ -138,9 +138,9 @@ export const organizers: Person[] = [
 ];
 
 export const people = [
-  { id: "speakers", title: "Speakers", people: speakers },
-  { id: "advisors", title: "Advisors", people: advisors },
-  { id: "organizers", title: "Organizers", people: organizers },
+  { id: "speakers", role: "Speaker", people: speakers },
+  { id: "advisors", role: "Advisor", people: advisors },
+  { id: "organizers", role: "Organizer", people: organizers },
 ];
 
 export const cta = {

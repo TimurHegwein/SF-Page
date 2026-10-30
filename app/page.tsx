@@ -5,7 +5,6 @@ import {
   CtaBand,
   Eyebrow,
   Heading,
-  PersonCard,
   Section,
   SectionHeader,
   SpotlightCard,
@@ -14,6 +13,7 @@ import {
   TextLink,
 } from "@tum.ai/ui-kit";
 import { Footer, Header } from "@tum.ai/ui-kit/shell";
+import { PeopleMarquee } from "@/components/people-marquee";
 import { SfHero } from "@/components/sf-hero";
 import { asset } from "@/lib/asset";
 import {
@@ -108,28 +108,7 @@ export default function Page() {
               eyebrow="People"
               title="Built by people who made the move"
             />
-            {people.map((group) => (
-              <div key={group.id} id={group.id} className="mt-12">
-                <Eyebrow>{group.title}</Eyebrow>
-                <div className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                  {group.people.map((person) => (
-                    <PersonCard
-                      key={person.name}
-                      name={person.name}
-                      byline={person.byline}
-                      image={{ src: person.image, alt: "" }}
-                      unoptimized
-                    >
-                      {person.linkedin && (
-                        <TextLink href={person.linkedin} emphasis="muted">
-                          LinkedIn
-                        </TextLink>
-                      )}
-                    </PersonCard>
-                  ))}
-                </div>
-              </div>
-            ))}
+            <PeopleMarquee groups={people} />
           </Container>
         </Section>
 
