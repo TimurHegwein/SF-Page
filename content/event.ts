@@ -116,7 +116,7 @@ export const advisors: Person[] = [
   },
   {
     name: "Luis Schmitz",
-    byline: "Headline",
+    byline: "Headline · Hackathon jury",
     image: asset("/people/Luis.png"),
     linkedin: "https://www.linkedin.com/in/luis-schmitz/",
   },
