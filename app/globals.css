@@ -67,7 +67,7 @@ header nav[aria-label="Main"]::-webkit-scrollbar {
   .sf-marquee-track {
     animation: none;
   }
-  .sf-marquee-copy[inert] {
+  .sf-marquee-copy[aria-hidden] {
     display: none;
   }
 }

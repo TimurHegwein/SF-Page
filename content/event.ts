@@ -104,13 +104,13 @@ export const speakers: Person[] = [
 export const advisors: Person[] = [
   {
     name: "Tim Saval",
-    byline: "Founder & CEO, Plural",
+    byline: "Founder & Investor",
     image: asset("/people/Tim.png"),
     linkedin: "https://www.linkedin.com/in/timsaval/",
   },
   {
     name: "Mike Mahlkow",
-    byline: "Co-founder & CEO, Fastgen (YC W23)",
+    byline: "Founder & Investor",
     image: asset("/people/Mike.jpg"),
     linkedin: "https://www.linkedin.com/in/mikemahlkow/",
   },
