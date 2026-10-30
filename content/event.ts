@@ -91,7 +91,7 @@ export type Person = {
   linkedin: string;
 };
 
-// Photos live in /public/people. TODO: Jakob's photo.
+// Photos live in /public/people.
 export const speakers: Person[] = [
   {
     name: "Hamze Al-Zamkan",
@@ -126,13 +126,13 @@ export const organizers: Person[] = [
   {
     name: "Jakob Liebig",
     byline: "Organizer, TUM.ai",
-    image: asset("/placeholder.svg"),
+    image: asset("/people/Jakob.png"),
     linkedin: "https://www.linkedin.com/in/jakob-liebig/",
   },
   {
     name: "Timur Hegwein",
     byline: "Organizer, TUM.ai",
-    image: asset("/people/Timur.png"),
+    image: asset("/people/Timur.jpg"),
     linkedin: "https://www.linkedin.com/in/timur-hegwein-9b2948332/",
   },
 ];
