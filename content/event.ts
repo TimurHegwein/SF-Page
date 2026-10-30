@@ -81,7 +81,6 @@ export const partners: LogoItem[] = [
   { name: "Modal", src: asset("/logos/modal.svg"), href: "https://modal.com", aspectRatio: 187 / 35 },
   { name: "Cognition", src: asset("/logos/cognition.svg"), href: "https://cognition.ai", aspectRatio: 1, wordmark: "Cognition" },
   { name: "Headline", src: asset("/logos/headline.svg"), href: "https://headline.com", aspectRatio: 217 / 378, wordmark: "Headline" },
-  { name: "Zero Prime Ventures", src: asset("/logos/zeroprime.svg"), href: "https://zeroprime.vc", aspectRatio: 160 / 31 },
   { name: "Tenor", src: asset("/logos/tenor.svg"), href: "https://heytenor.com", aspectRatio: 825 / 172 },
 ];
 
