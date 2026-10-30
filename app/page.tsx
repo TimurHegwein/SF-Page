@@ -17,7 +17,7 @@ import { Footer, Header } from "@tum.ai/ui-kit/shell";
 import { SfHero } from "@/components/sf-hero";
 import { asset } from "@/lib/asset";
 import {
-  advisors,
+  people,
   CONTACT_EMAIL,
   EVENT_NAME,
   cta,
@@ -47,7 +47,7 @@ export default function Page() {
         navigation={[
           { href: "#format", label: "Format" },
           { href: "#why-now", label: "Why now" },
-          { href: "#advisors", label: "Advisors" },
+          { href: "#people", label: "People" },
           { href: "#contact", label: "Contact" },
         ]}
         cta={{ href: partnerMail, label: "Become a partner" }}
@@ -102,27 +102,34 @@ export default function Page() {
           </Container>
         </Section>
 
-        <Section id="advisors" tone="lavender">
+        <Section id="people" tone="lavender">
           <Container>
             <SectionHeader
-              eyebrow="Advisors"
-              title="Advised by people who made the move"
+              eyebrow="People"
+              title="Built by people who made the move"
             />
-            <div className="mt-12 grid max-w-3xl gap-8 sm:grid-cols-2">
-              {advisors.map((person, i) => (
-                <PersonCard
-                  key={i}
-                  name={person.name}
-                  byline={person.byline}
-                  image={{ src: person.image, alt: "" }}
-                  unoptimized
-                >
-                  <TextLink href={person.linkedin} emphasis="muted">
-                    LinkedIn
-                  </TextLink>
-                </PersonCard>
-              ))}
-            </div>
+            {people.map((group) => (
+              <div key={group.id} id={group.id} className="mt-12">
+                <Eyebrow>{group.title}</Eyebrow>
+                <div className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                  {group.people.map((person) => (
+                    <PersonCard
+                      key={person.name}
+                      name={person.name}
+                      byline={person.byline}
+                      image={{ src: person.image, alt: "" }}
+                      unoptimized
+                    >
+                      {person.linkedin && (
+                        <TextLink href={person.linkedin} emphasis="muted">
+                          LinkedIn
+                        </TextLink>
+                      )}
+                    </PersonCard>
+                  ))}
+                </div>
+              </div>
+            ))}
           </Container>
         </Section>
 
@@ -153,7 +160,7 @@ export default function Page() {
             links: [
               { href: "#format", label: "Format" },
               { href: "#why-now", label: "Why now" },
-              { href: "#advisors", label: "Advisors" },
+              { href: "#people", label: "People" },
             ],
           },
           {

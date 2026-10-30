@@ -85,20 +85,63 @@ export const partners: LogoItem[] = [
   { name: "Tenor", src: asset("/logos/tenor.svg"), href: "https://heytenor.com", aspectRatio: 825 / 172 },
 ];
 
-// TODO: add advisor photos to /public/advisors and confirm the bylines.
-export const advisors = [
+export type Person = {
+  name: string;
+  byline: string;
+  image: string;
+  linkedin: string;
+};
+
+// Photos live in /public/people. TODO: Jakob's photo.
+export const speakers: Person[] = [
+  {
+    name: "Hamze Al-Zamkan",
+    byline: "Founder, Tenor",
+    image: asset("/people/Hamze.png"),
+    linkedin: "https://www.linkedin.com/in/hamze-al-zamkan/",
+  },
+];
+
+export const advisors: Person[] = [
   {
     name: "Mike Mahlkow",
     byline: "Co-founder & CEO, Fastgen (YC W23). Previously co-founded Blair (YC S19).",
-    image: asset("/placeholder.svg"),
+    image: asset("/people/Mike.jpg"),
     linkedin: "https://www.linkedin.com/in/mikemahlkow/",
   },
   {
     name: "Tim Saval",
     byline: "Founder & CEO, Plural",
-    image: asset("/placeholder.svg"),
+    image: asset("/people/Tim.png"),
     linkedin: "https://www.linkedin.com/in/timsaval/",
   },
+  {
+    name: "Luis Schmitz",
+    byline: "Headline",
+    image: asset("/people/Luis.png"),
+    linkedin: "https://www.linkedin.com/in/luis-schmitz/",
+  },
+];
+
+export const organizers: Person[] = [
+  {
+    name: "Jakob Liebig",
+    byline: "Organizer, TUM.ai",
+    image: asset("/placeholder.svg"),
+    linkedin: "https://www.linkedin.com/in/jakob-liebig/",
+  },
+  {
+    name: "Timur Hegwein",
+    byline: "Organizer, TUM.ai",
+    image: asset("/people/Timur.png"),
+    linkedin: "https://www.linkedin.com/in/timur-hegwein-9b2948332/",
+  },
+];
+
+export const people = [
+  { id: "speakers", title: "Speakers", people: speakers },
+  { id: "advisors", title: "Advisors", people: advisors },
+  { id: "organizers", title: "Organizers", people: organizers },
 ];
 
 export const cta = {
