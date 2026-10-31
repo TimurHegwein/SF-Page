@@ -100,7 +100,8 @@ export default function Page() {
               title="The Munich–Bay pipeline is already running."
               lead="German engineers have been building the Bay for decades. TUM.ai is where the next ones meet."
             />
-            <StatGrid className="mt-12" columns={4} items={stats} />
+            {/* One column on phones: "$342.5B" is too wide for half a phone screen. */}
+            <StatGrid className="mt-12 grid-cols-1 sm:grid-cols-2" columns={4} items={stats} />
           </Container>
         </Section>
 
