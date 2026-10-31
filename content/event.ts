@@ -11,6 +11,8 @@ export const mailto = (subject: string) =>
 
 export const EVENT_NAME = "TUM.ai Summit";
 
+export const EHL_URL = "https://ehl.gg";
+
 export const hero = {
   title: EVENT_NAME,
   tagline: "Overengineered. Overregulated. Still world class.",
@@ -114,9 +116,12 @@ export const advisors: Person[] = [
     image: asset("/people/Mike.jpg"),
     linkedin: "https://www.linkedin.com/in/mikemahlkow/",
   },
+];
+
+export const jury: Person[] = [
   {
     name: "Luis Schmitz",
-    byline: "Headline · Hackathon jury",
+    byline: "Headline",
     image: asset("/people/Luis.png"),
     linkedin: "https://www.linkedin.com/in/luis-schmitz/",
   },
@@ -140,6 +145,7 @@ export const organizers: Person[] = [
 export const people = [
   { id: "speakers", role: "Speaker", people: speakers },
   { id: "advisors", role: "Advisor", people: advisors },
+  { id: "jury", role: "Jury", people: jury },
   { id: "organizers", role: "Organizer", people: organizers },
 ];
 

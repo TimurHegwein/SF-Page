@@ -13,6 +13,7 @@ import {
   TextLink,
 } from "@tum.ai/ui-kit";
 import { Footer, Header } from "@tum.ai/ui-kit/shell";
+import { About } from "@/components/about";
 import { PeopleMarquee } from "@/components/people-marquee";
 import { SfHero } from "@/components/sf-hero";
 import { asset } from "@/lib/asset";
@@ -47,6 +48,7 @@ export default function Page() {
         navigation={[
           { href: "#format", label: "Format" },
           { href: "#why-now", label: "Why now" },
+          { href: "#about", label: "About" },
           { href: "#people", label: "People" },
           { href: "#contact", label: "Contact" },
         ]}
@@ -101,6 +103,8 @@ export default function Page() {
             <StatGrid className="mt-12" columns={4} items={stats} />
           </Container>
         </Section>
+
+        <About />
 
         <Section id="people" tone="lavender">
           <Container>
